@@ -9,7 +9,7 @@ const GamePlay = ({ playerName }) => {
   const [options, setOptions] = useState([]);
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState({ correct: 0, incorrect: 0 });
-  const [wrongAttemptsLeft, setWrongAttemptsLeft] = useState(2); // Max 5 wrong guesses
+  const [wrongAttemptsLeft, setWrongAttemptsLeft] = useState(5); // Max 5 wrong guesses
   const [toast, setToast] = useState(null);
   const [showShareModal, setShowShareModal] = useState(false);
   const [lifelines, setLifelines] = useState({ fiftyFifty: true, revealLetter: true }); // Persistent across game
