@@ -30,9 +30,12 @@ const GamePlay = ({ playerName }) => {
 
       console.log('Destination::::::::::::', res.data);
 
+      console.log('we are calling for the next api --------------------------------')
       // const allDestinations = await axios.get(baseUrl + '/destinations');
       const allDestinations = await axios.get('https://globe-trotter-backend-erld.onrender.com/api/destinations');
       // const allDestinations = await axios.get('http://localhost:5000/api/destinations');
+      console.log( 'got the dATA-----------', allDestinations.data);
+
       const wrongOptions = allDestinations.data
         .filter(d => d.id !== res.data.id)
         .sort(() => 0.5 - Math.random())
