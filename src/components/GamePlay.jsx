@@ -28,7 +28,7 @@ const GamePlay = ({ playerName }) => {
 
       console.log('Destination::::::::::::', res.data);
 
-      const allDestinations = await axios.get(baseUrl + 'destinations');
+      const allDestinations = await axios.get(baseUrl + '/destinations');
       // const allDestinations = await axios.get('http://localhost:5000/api/destinations');
       const wrongOptions = allDestinations.data
         .filter(d => d.id !== res.data.id)
