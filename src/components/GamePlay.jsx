@@ -4,6 +4,9 @@ import confetti from 'canvas-confetti';
 import html2canvas from 'html2canvas';
 import { RiShareForwardFill, RiScissorsFill, RiFontSize, RiRefreshLine } from 'react-icons/ri';
 
+const baseUrl = 'https://globe-trotter-backend-erld.onrender.com/api';
+// const baseUrl = 'http://localhost:5000/api';
+
 const GamePlay = ({ playerName }) => {
   const [destination, setDestination] = useState(null);
   const [options, setOptions] = useState([]);
@@ -17,12 +20,16 @@ const GamePlay = ({ playerName }) => {
 
   const fetchDestination = async () => {
     try {
-      const res = await axios.get('https://globe-trotter-backend-erld.onrender.com/api/destination');
+      const res = await axios.get(baseUrl + '/destination');
+      // const res = await axios.get('http://localhost:5000/api/destination');
       setDestination(res.data);
       setFeedback(null);
       setHint(null);
 
-      const allDestinations = await axios.get('https://globe-trotter-backend-erld.onrender.com/api/destinations');
+      console.log('Destination::::::::::::', res.data);
+
+      const allDestinations = await axios.get(baseUrl + 'destinations');
+      // const allDestinations = await axios.get('http://localhost:5000/api/destinations');
       const wrongOptions = allDestinations.data
         .filter(d => d.id !== res.data.id)
         .sort(() => 0.5 - Math.random())
