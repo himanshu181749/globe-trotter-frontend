@@ -17,12 +17,12 @@ const GamePlay = ({ playerName }) => {
 
   const fetchDestination = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/destination');
+      const res = await axios.get('https://globe-trotter-backend-erld.onrender.com');
       setDestination(res.data);
       setFeedback(null);
       setHint(null);
 
-      const allDestinations = await axios.get('http://localhost:5000/api/destinations');
+      const allDestinations = await axios.get('https://globe-trotter-backend-erld.onrender.com');
       const wrongOptions = allDestinations.data
         .filter(d => d.id !== res.data.id)
         .sort(() => 0.5 - Math.random())
